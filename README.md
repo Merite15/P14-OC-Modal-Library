@@ -1,27 +1,96 @@
-# React + TypeScript + Vite
+# React-Vite-Modal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+NPM package made with vite
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React component for displaying a modal in full screen mode.
+The modal contains:
 
-## Expanding the ESLint configuration
+- a close button
+- a title
+- content (which can be text or a component)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Install
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```bash
+npm i vite-react-modal
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Documentation
+
+After installing the package on your dependencies, add
+
+```
+"vite-react-modal": ["node_modules/vite-react-modal/dist/index.d.ts"]
+in tsconfig.json on paths options and import the library in your parent component.
+```
+
+### Importation
+
+```jsx
+import { Modal } from "vite-react-modal";
+```
+
+### Setup the state to open / close the modal in your parent component
+
+- import useState from react
+- create the state with useState => it will be a boolean with false by default
+
+```jsx
+const [isOpen, setIsOpen] = useState(false);
+```
+
+### Modal Implementation
+
+```jsx
+<Modal
+  show={isModalOpen}
+  close={closeModal}
+  title="Custom Modal Title"
+  content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Unum nescio,."
+/>
+```
+
+### Props Description
+
+- Close (required): handle the modal closing. the props is must receive a function where you pass the setter to false
+- show (required) : handle the modal opening. the props must receive the state value of the getter (isOpen)
+- title(required): contain the modal title
+- content(required): contain the modal content. It could be a string or an object
+
+#### Example
+
+```jsx
+import { useState } from "react";
+import { Modal } from "../lib/Modal";
+
+export const ModalScaffold = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  return (
+    <div>
+      <button onClick={openModal}>Open Modal</button>
+
+      <Modal
+        show={isModalOpen}
+        close={closeModal}
+        title="Custom Modal Title"
+        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Unum nescio,."
+      />
+    </div>
+  );
+};
+```
+
+## License
+
+© [Merite Kioungou](https://github.com/merite15)

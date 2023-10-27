@@ -1,7 +1,7 @@
 {
-  "name": "p14-oc-modal-library",
-  "private": true,
-  "version": "0.0.0",
+  "name": "vite-react-modal",
+  "private": false,
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -24,5 +24,38 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.6.0"
-  }
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "description": "A react-Modal-Library",
+  "main": "./dist/vite-react-modal.umd.js",
+  "module": "./dist/vite-react-modal.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/vite-react-modal.es.js",
+      "require": "./dist/vite-react-modal.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css",
+    "./dist/index.d.ts": "./dist/index.d.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Merite15/P14-OC-Modal-Library.git"
+  },
+  "keywords": [
+    "react",
+    "components"
+  ],
+  "author": "Merite KIOUNGOU",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Merite15/P14-OC-Modal-Library/issues"
+  },
+  "homepage": "https://github.com/Merite15/P14-OC-Modal-Library#readme"
 }
