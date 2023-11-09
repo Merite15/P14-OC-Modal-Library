@@ -2,6 +2,12 @@ import { useState } from "react";
 import { Modal } from "../lib/Modal";
 import './style.scss';
 
+/**
+ * Composant ModalScaffold
+ * @component
+ * 
+ * @returns {JSX.Element} Composant ModalScaffold
+ */
 export const ModalScaffold = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 

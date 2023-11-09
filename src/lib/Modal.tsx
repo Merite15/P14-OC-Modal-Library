@@ -9,6 +9,18 @@ interface ModalProps {
     children?: React.ReactNode;
 }
 
+/**
+ * Reusable Modal component.
+ * @component
+ * @example
+ * // Using the Modal component
+ * <Modal show={true} close={() => setIsModalOpen(false)} title="Custom Modal Title">
+ *   Modal content
+ * </Modal>
+ * 
+ * @param {ModalProps} props - The properties for the Modal component.
+ * @returns {JSX.Element} The Modal component.
+ */
 export const Modal: React.FC<ModalProps> = (props) => {
     const { title = "insert title", content = "insert content" } = props;
     const { show, close } = props;
