@@ -2,6 +2,9 @@
 
 NPM package made with vite
 
+## Documentation
+https://merite15.github.io/P14-OC-Modal-Library/
+
 ## Description
 
 React component for displaying a modal in full screen mode.
